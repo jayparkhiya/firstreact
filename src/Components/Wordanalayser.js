@@ -53,6 +53,9 @@ export default function Wordanalayser(props) {
           Preview
         </h1>
         <p style={{ color: props.mode === "light" ? "black" : "white" }}>
+          {text.split(" ").length}:{text.length}
+        </p>
+        <p style={{ color: props.mode === "light" ? "black" : "white" }}>
           {text.length > 0 ? text : "Enter some text to Preview Here!!!"}
         </p>
       </div>
