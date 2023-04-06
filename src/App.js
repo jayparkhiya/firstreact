@@ -23,7 +23,7 @@ function App() {
   const togglemode = () => {
     if (mode === "light") {
       setMode("dark");
-      document.body.style.backgroundColor = "gray";
+      document.body.style.backgroundColor = "#042743";
       showalert("Dark Mode Enabled", "success");
       //settext("light");
     } else {
@@ -42,7 +42,7 @@ function App() {
 
         <Switch>
           <Route exact path="/about">
-            <About Heading="About Us" />
+            <About Heading="About Us" mode={mode} />
           </Route>
 
           <Route exact path="/">

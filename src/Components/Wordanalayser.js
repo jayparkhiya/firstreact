@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export default function Wordanalayser(props) {
-  const [text, settext] = useState("Enter Text Here");
+  const [text, settext] = useState("");
 
   const handletoup = () => {
     const newtext = text.toUpperCase();
@@ -39,13 +39,28 @@ export default function Wordanalayser(props) {
           rows="3"
         ></textarea>
       </div>
-      <button type="button" onClick={handletoup} className="btn btn-primary">
+      <button
+        disabled={text.length === 0}
+        type="button"
+        onClick={handletoup}
+        className="btn btn-primary mx-1 my-2"
+      >
         Click To Uppercase
       </button>
-      <button type="button" onClick={handletolo} className="btn btn-primary">
+      <button
+        disabled={text.length === 0}
+        type="button"
+        onClick={handletolo}
+        className="btn btn-primary mx-1 my-2"
+      >
         Click To Lowercase
       </button>
-      <button type="button" onClick={handletoclear} className="btn btn-primary">
+      <button
+        disabled={text.length === 0}
+        type="button"
+        onClick={handletoclear}
+        className="btn btn-primary mx-1 my-2"
+      >
         Click To Clear
       </button>
       <div className="container">
@@ -53,7 +68,12 @@ export default function Wordanalayser(props) {
           Preview
         </h1>
         <p style={{ color: props.mode === "light" ? "black" : "white" }}>
-          {text.split(" ").length}:{text.length}
+          {
+            text.split(/\s+/).filter((element) => {
+              return element.length !== 0;
+            }).length
+          }{" "}
+          Words and {text.length} Characters
         </p>
         <p style={{ color: props.mode === "light" ? "black" : "white" }}>
           {text.length > 0 ? text : "Enter some text to Preview Here!!!"}
